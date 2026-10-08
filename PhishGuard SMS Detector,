@@ -1,0 +1,31 @@
+print("========== PHISHGUARD SMS CHECKER ==========")
+sms = input("Enter the SMS: ").lower()
+suspicious_words = [
+    "otp",
+    "verify",
+    "click",
+    "urgent",
+    "account blocked",
+    "account suspended",
+    "claim",
+    "winner",
+    "prize",
+    "refund",
+    "payment",
+    "bank",
+    "password",
+    "kyc",
+    "upi",
+    "pin"
+]
+suspicious = False
+for word in suspicious_words:
+    if word in sms:
+        suspicious = True
+if "http://" in sms or "https://" in sms or "www." in sms:
+    suspicious = True
+if suspicious:
+    print("\n This SMS may be FAKE or a SCAM.")
+    print("Do not click links or share OTP, PIN, or password.")
+else:
+    print("\n This SMS looks SAFE based on the basic checks.")
